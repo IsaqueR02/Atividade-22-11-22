@@ -3,16 +3,15 @@ public class Gerente extends Empregado
 
   // Atributos da classe gerente
   private String gerente;
-  private double inss;
+  private double inss = getSalario();
 
 
-  public Gerente (String Matricula, double seuSalario, String nomeGerencia, int valorInss,
+  public Gerente (String Matricula, double seuSalario, String nomeGerencia,
   String nome, int idade, String sexo,
   double salario, String matricula) {
       super(Matricula, seuSalario, 
   nome, idade, sexo);
     this.gerente = nomeGerencia;
-    this.inss = valorInss;
 
   }
   public String getGerente() {
@@ -23,15 +22,11 @@ public class Gerente extends Empregado
 		this.gerente = gerente;
 	 }
 	 public double getInss() {
-		return inss;
-	 }
-
-	 public void setInss(double valorInss) {
-		this.inss = valorInss;
+		return super.getSalario() * 0.11;
 	 }
   public String toString ()
   {
-    return "O nome do Gerente é " + gerente + "o valor do Inss é: " + inss;
+    return "O nome do Gerente é " + gerente + " e o valor do Inss é: " + getInss();
 
   }
 }
